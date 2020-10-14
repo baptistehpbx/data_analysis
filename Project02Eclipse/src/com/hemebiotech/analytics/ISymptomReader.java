@@ -16,6 +16,7 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
+
 	Map<String,Integer> GetSymptoms ();
 	void saver (Map<String,Integer> data);
 }
