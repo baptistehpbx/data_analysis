@@ -11,9 +11,12 @@ public class AnalyticsCounter {
 
 		ISymptomReader r = new ReadSymptomDataFromFile("symptoms.txt");
 
-		Map<String,Integer> symptoms = r.GetSymptoms();
-		r.saver(symptoms);
+		Map<String,Integer> symptoms = r.getSymptoms();
+
+		ISymptomWriter writer = new WriteSymptomsInToFile();
+		writer.saver(symptoms);
 
 
 	}
+
 }
