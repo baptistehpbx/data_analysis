@@ -26,11 +26,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	/**
 	 *
-	 * Simple implementation of {@link ISymptomReader#GetSymptoms()}
+	 * Simple implementation of {@link ISymptomReader#getSymptoms()}
 	 * @return a map that contains the analytics
 	 */
 	@Override
-	public Map<String, Integer> GetSymptoms() {
+	public Map<String, Integer> getSymptoms() {
 		SortedMap<String, Integer> result = new TreeMap<>();
 
 		if (filepath != null) {
@@ -52,34 +52,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
-	/**
-	 * Saves the content of the analytics in a file.
-	 *
-	 * This simple implementation uses a FileWriter to write line by line each analytic in the file.
-	 *
-	 * @param data map that contains the analytics
-	 */
-	public void saver(Map<String, Integer> data) {
-
-		Set<SortedMap.Entry<String, Integer>> result = data.entrySet();
-
-		for (SortedMap.Entry<String, Integer> it : result) {
-			System.out.println(String.format(" le mot %s a %s occurences", it.getKey(), it.getValue()));
-		}
 
 
-		try (FileWriter writer = new FileWriter("result.out")) {
-
-
-			for (SortedMap.Entry<String, Integer> occurence : result) {
-				String line = String.format(" le mot %s a %s occurences%s", occurence.getKey(), occurence.getValue(), System.lineSeparator());
-				System.out.println(line);
-				writer.write(line);
-			}
-
-
-		} catch (IOException e) {
-
-		}
-	}
 }
